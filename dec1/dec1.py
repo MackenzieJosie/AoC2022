@@ -1,16 +1,16 @@
 def main():
-	max = 0
+	max = []
 	sum = 0
 	with open("input.txt") as input_file:
-		#data = input_file.read()
 		for line in input_file:
 			if (len(line) > 1):
 				sum = sum + int(line)
 			else:
-				if (sum > max):
-					max = sum
+				max.append(sum)
 				sum = 0
-	print(max)
+	max.sort(reverse = True)
+	print(max[0])
+	print(max[0]+max[1]+max[2])
 
 #Call the main function
 main()
