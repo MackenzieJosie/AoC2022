@@ -37,7 +37,7 @@ for i in range(len(input)):
 		if (grid[i][j] != "a"): continue
 		start = i, j
 		queue = [[start]]
-		seen = [(start)]
+		seen = set([(start)])
 		while queue:
 			path = queue.pop(0)
 			x, y = path[-1]
@@ -50,6 +50,6 @@ for i in range(len(input)):
 					if (grid[x][y] != "z" and grid[x2][y2] == "E"):
 						continue
 					queue.append(path + [(x2,y2)])
-					seen.append((x2,y2))
+					seen.add((x2,y2))
 
 print("part 2:",minPath)
