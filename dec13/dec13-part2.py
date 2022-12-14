@@ -6,11 +6,9 @@ input = open("input.txt").read().replace("\n\n","\n").split("\n")
 
 def compareLists(left, right):
 	if len(left) == 0:
-		# print(pairIndex, "is right")
 		return -1
 	for i in range(len(left)):
 		if i >= len(right):
-			# print(pairIndex, "right list ran out so wrong")
 			return 1
 		if type(right[i]) == list and type(left[i]) != list:
 			left[i] = [left[i]]
