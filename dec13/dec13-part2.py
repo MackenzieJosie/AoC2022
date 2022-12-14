@@ -33,6 +33,9 @@ for lines in input:
 
 	packets.append(json.loads(lines))
 
+packets.append([[6]])
+packets.append([[2]])
+
 packets = sorted(packets, key=cmp_to_key(compareLists))
 
 decoder = []
