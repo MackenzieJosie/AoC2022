@@ -1,3 +1,4 @@
+# Opening file parsing the input
 input = open("input.txt", "r").read().split("\n")
 #initializing variables
 tailVisited = {}
@@ -11,6 +12,7 @@ def positionToString(tailX, tailY):
 
 tailVisited[positionToString(tailX, tailY)] = 1
 
+# main loop through input
 for line in input:
     if len(line) == 0:
         break
@@ -18,6 +20,7 @@ for line in input:
     direction, distance = line.split(" ")
     distance = int(distance)
 
+    # moving head in the direction and distance specified
     for i in range(distance):
         tempX, tempY = headX, headY
         match(direction):
@@ -30,19 +33,10 @@ for line in input:
             case "L":
                 headX += 1
 
+        # keeping tail touching head
         if abs(headX - tailX) > 1 or abs(headY - tailY) > 1:
             tailX, tailY = tempX, tempY
             if positionToString(tailX, tailY) not in tailVisited:
                 tailVisited[positionToString(tailX, tailY)] = 1
 
-print(len(tailVisited))
-
-# this draws the path taken by the tail
-# for i in range(0,400):
-#     for j in range(0,400):
-#         if positionToString(i, j) in tailVisited:
-#             print("#", end="")
-#         else:
-#             print(".",end="")
-#     print()
-
+print(len(tailVisited)) # printing solution
